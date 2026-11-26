@@ -8,11 +8,11 @@ html {
 
 body {
     margin: 0;
-    min-width: 1100px;
     color: #fff5e8;
     background: #1e1006;
     font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: 14px;
+    overflow-x: hidden; /* Защита от горизонтальной прокрутки */
 }
 
 a {
@@ -28,8 +28,10 @@ button {
 }
 
 .wrap {
-    width: 1040px;
+    max-width: 1040px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .header {
@@ -198,7 +200,8 @@ h2 {
 }
 
 .store {
-    width: 918px;
+    max-width: 918px;
+    width: 100%;
     margin: auto;
     padding: 18px;
     border-radius: 20px;
@@ -228,6 +231,7 @@ h2 {
 .store-body {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .store-preview {
@@ -296,7 +300,8 @@ h4 {
 }
 
 .description-column {
-    width: 398px;
+    flex: 1;
+    min-width: 300px;
     padding: 0 5px 18px 4px;
     background: #210f05;
     border-radius: 10px;
@@ -429,6 +434,7 @@ h4 {
     gap: 35px;
     padding: 55px 0 40px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .small-logo {
@@ -449,7 +455,7 @@ h4 {
 }
 
 .inner-page {
-    padding: 15px 50px 55px;
+    padding: 15px 0 55px;
     min-height: 760px;
 }
 
@@ -461,12 +467,12 @@ h4 {
     color: #a58b76;
     font-size: 12px;
     margin: auto auto 25px;
-    width: 800px;
+    max-width: 800px;
     line-height: 1.8;
 }
 
 .rules-list {
-    width: 800px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -503,7 +509,7 @@ h4 {
 }
 
 .bottom-help {
-    width: 800px;
+    max-width: 800px;
     margin: 45px auto;
     padding: 25px;
     background: #261407;
@@ -570,6 +576,7 @@ h4 {
     background: #2b170b;
     border-radius: 15px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .reward-banner img {
@@ -589,10 +596,12 @@ h4 {
 .guide-layout {
     display: flex;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .guide-steps {
-    width: 600px;
+    flex: 1;
+    min-width: 300px;
 }
 
 .guide-step {
@@ -657,10 +666,12 @@ h4 {
     background: #291509;
     padding: 15px 35px;
     border-radius: 16px;
+    flex-wrap: wrap;
 }
 
 .news-wide img {
     width: 360px;
+    max-width: 100%;
 }
 
 .news-wide p {
@@ -675,8 +686,10 @@ h4 {
 }
 
 .article-page {
-    width: 850px;
+    max-width: 850px;
+    width: 100%;
     padding: 30px 0;
+    margin: 0 auto;
 }
 
 .breadcrumbs {
@@ -685,8 +698,13 @@ h4 {
     margin: 0 0 35px;
 }
 
-.article-page h2 {
+.article-page h1 {
     font-size: 38px;
+    margin: 20px 0;
+}
+
+.article-page h2 {
+    font-size: 28px;
     margin: 20px 0;
 }
 
@@ -696,27 +714,27 @@ h4 {
 }
 
 .article-cover {
-    width: 850px;
+    width: 100%;
     border-radius: 12px;
     margin-top: 20px;
 }
 
 .article-body {
-    width: 730px;
+    max-width: 730px;
     margin: 30px auto;
     font-size: 14px;
     line-height: 1.9;
     color: #b99d85;
 }
 
-.article-body h4 {
+.article-body h2 {
     color: #fff1df;
     font-size: 22px;
     margin-top: 32px;
 }
 
 .article-body img {
-    width: 730px;
+    width: 100%;
     margin: 20px 0;
 }
 
@@ -742,7 +760,8 @@ h4 {
 }
 
 .modal {
-    width: 470px;
+    max-width: 470px;
+    width: 100%;
     padding: 40px;
     border-radius: 15px;
     background: #2b180c;
@@ -767,6 +786,7 @@ h4 {
     cursor: pointer;
     color: #a78261;
     font-size: 24px;
+    background: transparent;
 }
 
 .modal .orange {
@@ -810,4 +830,98 @@ h4 {
     width: 300px;
     max-height: 300px;
     object-fit: contain;
+}
+
+/* --- ДОБАВЛЕНО ДЛЯ АДАПТИВНОСТИ --- */
+
+:focus-visible {
+    outline: 2px solid orange;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .wrap {
+        padding: 0 10px;
+    }
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero {
+        height: auto;
+        flex-direction: column;
+        padding-top: 20px;
+        text-align: center;
+    }
+    .hero-copy {
+        width: 100%;
+    }
+    .hero-copy h1, .hero-copy h2 {
+        font-size: 28px;
+    }
+    .hero p {
+        width: 100%;
+        margin: 0 auto 20px;
+    }
+    .hero-players {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .hero-back {
+        position: static;
+        height: 200px;
+    }
+    .hero-front {
+        position: static;
+        height: 240px;
+        margin-left: -50px;
+    }
+    .store-body {
+        flex-direction: column;
+    }
+    .store-preview {
+        width: 100%;
+    }
+    .product-column, .description-column {
+        width: 100%;
+    }
+    .tabs {
+        margin-left: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .description-column .orange {
+        width: calc(100% - 40px);
+    }
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    .rewards-grid {
+        grid-template-columns: 1fr;
+    }
+    .article-page {
+        padding: 15px;
+    }
+    .article-body {
+        padding: 0 10px;
+    }
+    .article-bottom {
+        padding: 0 10px 20px;
+    }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
